@@ -5,15 +5,15 @@ public class HienThiSoNguyenToNhoHon100 {
         int num=100;
         int count=2;
         while (count<num){
-            boolean check=false;
+            boolean check=true;
             for (int i=2;i<count;i++){
                 if(count%i==0){
-                    check=true;
+                    check=false;
                     break;
                 }
             }
 
-            if (!check){
+            if (check){
                 System.out.println(count);
             }
             count++;
