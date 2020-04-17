@@ -74,6 +74,7 @@ public class XayDungLopFan {
         Fan1.setRadius(10);
         Fan1.setColor("Yellow");
         System.out.println(Fan1);
+
         XayDungLopFan Fan2=new XayDungLopFan();
         Fan2.setSpeed(medium);
         Fan2.setOn(false);
