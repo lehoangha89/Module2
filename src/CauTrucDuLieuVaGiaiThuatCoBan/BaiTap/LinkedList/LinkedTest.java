@@ -28,7 +28,8 @@ public class LinkedTest {
             System.out.println("Remove Index: "+linkedList.get(i));
         }
         System.out.println();
-        linkedList.remove(3 );
+        Integer a=new Integer(3);
+        linkedList.remove(a );
         for (int i=0;i<linkedList.size();i++){
             System.out.println("Remove Element: "+linkedList.get(i));
         }

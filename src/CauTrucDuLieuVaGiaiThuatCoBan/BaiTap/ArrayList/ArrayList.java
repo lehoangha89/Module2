@@ -82,15 +82,10 @@ public class ArrayList<E> {
         return  index;
     }
     public E remove(int index) {
-        if (index < 0 || index > element.length) {
-            throw new IllegalArgumentException("Error index: " + index);
-        }
-        E e = (E) element[index];
         for (int i = index; i < this.size(); i++) {
-            element[i] = element[i + 1];
+            this.element[i] = this.element[i + 1];
         }
-        element[size - 1] = null;
-        size--;
-        return e;
+        this.size--;
+        return (E) this.element;
     }
 }
