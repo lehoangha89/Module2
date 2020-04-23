@@ -1,7 +1,6 @@
 package CaseStudy.Controllers;
 
-import CaseStudy.Customers.Customer;
-import CaseStudy.Models.Villa;
+import CaseStudy.Models.Customer;
 
 import java.io.*;
 import java.nio.file.Files;

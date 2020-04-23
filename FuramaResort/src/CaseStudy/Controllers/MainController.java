@@ -1,21 +1,21 @@
 package CaseStudy.Controllers;
 
-import CaseStudy.Customers.Customer;
+import CaseStudy.Models.Customer;
 import CaseStudy.Models.House;
 import CaseStudy.Models.Room;
-import CaseStudy.Models.Services;
 import CaseStudy.Models.Villa;
-import java.io.File;
+
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 public class MainController {
     TreeSet<String> listRoomNotDuplicate = new TreeSet<>();
     TreeSet<String> listHouseNotDuplicate = new TreeSet<>();
     TreeSet<String> listVillaNotDuplicate = new TreeSet<>();
+
     public void displayMainMenu() {
         System.out.println("1. Add New Services" + "\n"
                 + "2. Show Services" + "\n"
@@ -40,19 +40,24 @@ public class MainController {
             case 3: {
                 addNewCustomer();
                 break;
-            } case 4:{
+            }
+            case 4: {
                 showInformationOfCustomer();
                 break;
-            } case 5:{
+            }
+            case 5: {
                 addNewBooking();
                 break;
-            } case 6:{
+            }
+            case 6: {
                 showInformationOfEmployee();
                 break;
-            } case 7:{
+            }
+            case 7: {
                 bookingMovieTicket4D();
                 break;
-            } case 8:{
+            }
+            case 8: {
                 findEmployee();
                 break;
             }
@@ -60,7 +65,7 @@ public class MainController {
                 System.exit(0);
                 break;
             }
-            default:{
+            default: {
                 System.out.println("Error.Back to main menu: ");
                 displayMainMenu();
                 break;
@@ -83,11 +88,11 @@ public class MainController {
     private void showInformationOfCustomer() {
     }
 
-    private void addNewCustomer() {
-        Scanner scanner=new Scanner(System.in);
-        ArrayList<Customer> customerArrayList=new ArrayList<Customer>();
-        customerArrayList=CustomerCSV.readCustomerCsv();
-        Customer customer=new Customer();
+    private static void addNewCustomer() {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Customer> customerArrayList = new ArrayList<Customer>();
+        customerArrayList = CustomerCSV.readCustomerCsv();
+        Customer customer = new Customer();
         customer.setNameCustomer(scanner.nextLine());
         customer.setBirthday(scanner.nextLine());
         customer.setGender(scanner.nextLine());
@@ -98,8 +103,40 @@ public class MainController {
         customer.setAddress(scanner.nextLine());
         customerArrayList.add(customer);
         CustomerCSV.writeCustomerCsv(customerArrayList);
-        displayMainMenu();
     }
+
+    public String nameCustomer() {
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
+        String name = null;
+        do {
+            try {
+                System.out.println("Enter name customer");
+                name = scanner.nextLine();
+                String regex = "^[A-Z]+[a-z]{1,}";
+                int count = 0;
+                for (int i = 0; i < name.length(); i++) {
+                    if (name.charAt(i) == ' ') {
+                        count++;
+                    }
+                }
+                String pattern = regex;
+                String regex2 = "[A-Z]{1}+[a-z]{1,}";
+                for (int i = 0; i < count; i++) {
+                    pattern += "\\s+" + regex2;
+                }
+                if (name.matches(pattern)) {
+                    flag = false;
+                } else{
+                    throw new Exception("In hoa kí tự đầu tiên và chỉ đc 1 khoảng trống");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } while (flag);
+        return name;
+    }
+
     public void addNewServices() {
         System.out.println("1. Add New Villa" + "\n" + "2. Add New House" + "\n" + "3. Add New Room" + "\n"
                 + "4. Back to menu" + "\n" + "5. Exit");
@@ -107,20 +144,22 @@ public class MainController {
         int choose = scanner.nextInt();
         switch (choose) {
             case 1: {
-                this.addNewVilla();
+                addNewVilla();
                 break;
             }
             case 2: {
-                this.addNewHouse();
+                addNewHouse();
                 break;
             }
             case 3: {
-                this.addNewRoom();
+                addNewRoom();
                 break;
-            } case 4:{
+            }
+            case 4: {
                 backToMenu();
                 break;
-            } case 5:{
+            }
+            case 5: {
                 System.exit(0);
                 break;
             }
@@ -136,31 +175,31 @@ public class MainController {
         villaArrayList = VillaCsv.readVillaCsv();
         Villa villa = new Villa();
         System.out.println("Nhập mã dịch vụ");
-        String id=inputId(1);
+        String id = inputId(1);
         villa.setId(id);
         System.out.println("Nhập tên dịch vụ");
-        String nameSevice=inputNameSerVices();
+        String nameSevice = inputNameSerVices();
         villa.setNameSevices(nameSevice);
         System.out.println("Diện tích sử dụng");
-        String arenaUsed=inputAreaUsed();
+        String arenaUsed = inputAreaUsed();
         villa.setArenaUsed(Double.parseDouble(arenaUsed));
         System.out.println("Chi phí thuê");
-        String rental=inputRental();
+        String rental = inputRental();
         villa.setRental(Integer.parseInt(rental));
         System.out.println("Số người tối đa");
-        String maxNumberOfPeople=inputMaxNumberOfPeople();
+        String maxNumberOfPeople = inputMaxNumberOfPeople();
         villa.setMaxNumberOfPeople(Integer.parseInt(maxNumberOfPeople));
         System.out.println("Kiểu thuê");
-        String typeOfRent=inputTypeOfRent();
+        String typeOfRent = inputTypeOfRent();
         villa.setTypeOfRent(typeOfRent);
         System.out.println("Tiêu chuẩn phòng");
-        String roomStrandard=inputRoomStandard();
+        String roomStrandard = inputRoomStandard();
         villa.setRoomStandard(roomStrandard);
         System.out.println("Diện tích hồ bơi");
-        String poolArena=inputAreaPool();
+        String poolArena = inputAreaPool();
         villa.setPoolArena(Double.parseDouble(poolArena));
         System.out.println("Số tầng");
-        String numberOfFloors=inputNumberOfFloor();
+        String numberOfFloors = inputNumberOfFloor();
         villa.setNumberOfFloors(Integer.parseInt(numberOfFloors));
         villaArrayList.add(villa);
         VillaCsv.writeVillaCsv(villaArrayList);
@@ -173,28 +212,28 @@ public class MainController {
         houseArrayList = HouseCSV.readHouseCsv();
         House house = new House();
         System.out.println("Nhập mã dịch vụ");
-        String id=inputId(1);
+        String id = inputId(1);
         house.setId(id);
         System.out.println("Nhập tên dịch vụ");
-        String nameSevice=inputNameSerVices();
+        String nameSevice = inputNameSerVices();
         house.setNameSevices(nameSevice);
         System.out.println("Diện tích sử dụng");
-        String arenaUsed=inputAreaUsed();
+        String arenaUsed = inputAreaUsed();
         house.setArenaUsed(Double.parseDouble(arenaUsed));
         System.out.println("Chi phí thuê");
-        String rental=inputRental();
+        String rental = inputRental();
         house.setRental(Integer.parseInt(rental));
         System.out.println("Số người tối đa");
-        String maxNumberOfPeople=inputMaxNumberOfPeople();
+        String maxNumberOfPeople = inputMaxNumberOfPeople();
         house.setMaxNumberOfPeople(Integer.parseInt(maxNumberOfPeople));
         System.out.println("Kiểu thuê");
-        String typeOfRent=inputTypeOfRent();
+        String typeOfRent = inputTypeOfRent();
         house.setTypeOfRent(typeOfRent);
         System.out.println("Tiêu chuẩn phòng");
-        String roomStrandard=inputRoomStandard();
+        String roomStrandard = inputRoomStandard();
         house.setRoomStandard(roomStrandard);
         System.out.println("Số tầng");
-        String numberOfFloors=inputNumberOfFloor();
+        String numberOfFloors = inputNumberOfFloor();
         house.setNumberOfFloors(Integer.parseInt(numberOfFloors));
         houseArrayList.add(house);
         HouseCSV.writeHouseCsv(houseArrayList);
@@ -207,22 +246,22 @@ public class MainController {
         roomArrayList = RoomCSV.readRoomCsv();
         Room room = new Room();
         System.out.println("Nhập mã dịch vụ");
-        String id=inputId(1);
+        String id = inputId(1);
         room.setId(id);
         System.out.println("Nhập tên dịch vụ");
-        String nameSevice=inputNameSerVices();
+        String nameSevice = inputNameSerVices();
         room.setNameSevices(nameSevice);
         System.out.println("Diện tích sử dụng");
-        String arenaUsed=inputAreaUsed();
+        String arenaUsed = inputAreaUsed();
         room.setArenaUsed(Double.parseDouble(arenaUsed));
         System.out.println("Chi phí thuê");
-        String rental=inputRental();
+        String rental = inputRental();
         room.setRental(Integer.parseInt(rental));
         System.out.println("Số người tối đa");
-        String maxNumberOfPeople=inputMaxNumberOfPeople();
+        String maxNumberOfPeople = inputMaxNumberOfPeople();
         room.setMaxNumberOfPeople(Integer.parseInt(maxNumberOfPeople));
         System.out.println("Kiểu thuê");
-        String typeOfRent=inputTypeOfRent();
+        String typeOfRent = inputTypeOfRent();
         room.setTypeOfRent(typeOfRent);
         System.out.println("Dịch vụ miễn phí đi kèm");
         room.setFreeServiceIncluded(scanner.nextLine());
@@ -242,24 +281,24 @@ public class MainController {
                 + "8.\tExit");
         Scanner scanner = new Scanner(System.in);
         int choose = scanner.nextInt();
-        switch (choose){
-            case 1:{
+        switch (choose) {
+            case 1: {
                 showAllVilla();
                 break;
             }
-            case 2:{
+            case 2: {
                 showAllHouse();
                 break;
             }
-            case 3:{
+            case 3: {
                 showAllRoom();
                 break;
             }
-            case 7:{
+            case 7: {
                 displayMainMenu();
                 break;
             }
-            case 8:{
+            case 8: {
                 System.exit(0);
                 break;
             }
@@ -279,7 +318,7 @@ public class MainController {
             System.out.println("Tiêu chuẩn phòng: " + villa.getRoomStandard());
             System.out.println("Diện tích hồ bơi: " + villa.getNumberOfFloors());
             System.out.println("Số tầng: " + villa.getNumberOfFloors());
-            System.out.println("Dịch vụ đi kèm : "+villa.showInfor());
+            System.out.println("Dịch vụ đi kèm : " + villa.showInfor());
             System.out.println();
         }
         Scanner scanner = new Scanner(System.in);
@@ -287,6 +326,7 @@ public class MainController {
         scanner.nextLine();
         displayMainMenu();
     }
+
     private void showAllHouse() {
         ArrayList<House> houseArrayList = new ArrayList<House>();
         houseArrayList = HouseCSV.readHouseCsv();
@@ -299,7 +339,7 @@ public class MainController {
             System.out.println("Kiểu thuê: " + house.getTypeOfRent());
             System.out.println("Tiêu chuẩn phòng: " + house.getRoomStandard());
             System.out.println("Số tầng: " + house.getNumberOfFloors());
-            System.out.println("Dịch vụ đi kèm : "+house.showInfor());
+            System.out.println("Dịch vụ đi kèm : " + house.showInfor());
             System.out.println();
         }
         Scanner scanner = new Scanner(System.in);
@@ -307,6 +347,7 @@ public class MainController {
         scanner.nextLine();
         displayMainMenu();
     }
+
     private void showAllRoom() {
         ArrayList<Room> roomArrayList = new ArrayList<Room>();
         roomArrayList = RoomCSV.readRoomCsv();
@@ -317,8 +358,8 @@ public class MainController {
             System.out.println("Chi phí thuê: " + room.getRental());
             System.out.println("Số người tối đa: " + room.getMaxNumberOfPeople());
             System.out.println("Kiểu thuê: " + room.getTypeOfRent());
-            System.out.println("Dịch vụ miễn phí đi kèm: "+room.getFreeServiceIncluded());
-            System.out.println("Dịch vụ đi kèm : "+room.showInfor());
+            System.out.println("Dịch vụ miễn phí đi kèm: " + room.getFreeServiceIncluded());
+            System.out.println("Dịch vụ đi kèm : " + room.showInfor());
             System.out.println();
         }
         Scanner scanner = new Scanner(System.in);
@@ -418,7 +459,7 @@ public class MainController {
             rental = scanner.nextLine();
             String patt = "^[1-9]+[\\d]*$";
             boolean math = rental.matches(patt);
-            if (math && (Integer.valueOf(rental) >0)) {
+            if (math && (Integer.valueOf(rental) > 0)) {
                 flag = false;
             } else {
                 System.out.println("Gia tri nhap vao khong chinh xac. Vui long nhap lai.");

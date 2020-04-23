@@ -1,4 +1,4 @@
-package CaseStudy.Customers;
+package CaseStudy.Models;
 
 import CaseStudy.Models.Services;
 
