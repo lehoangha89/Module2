@@ -9,7 +9,7 @@
 //import static CaseStudy.Controllers.EmployeeController.findEmployee;
 //import static CaseStudy.Controllers.EmployeeController.showInformationOfEmployee;
 //
-//public class MainController {
+public class MainController {
 //    public static void prosessMain() {
 //        try {
 //            displayMainMenu();
@@ -63,4 +63,4 @@
 //        displayMenuBackToMain();
 //        prosessMain();
 //    }
-//}
+}
