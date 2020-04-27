@@ -7,6 +7,7 @@ import CaseStudy.Models.Villa;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
@@ -86,19 +87,46 @@ public class MainController {
     }
 
     private void showInformationOfCustomer() {
+        ArrayList<Customer> customerArrayList=new ArrayList<Customer>();
+        customerArrayList=CustomerCSV.readCustomerCsv();
+        for (Customer customer:customerArrayList){
+            System.out.println("Name customer: "+customer.getNameCustomer());
+            System.out.println("Birthday customer: "+customer.getBirthday());
+            System.out.println("Enter gender customer: "+customer.getGender());
+            System.out.print("Enter IdCardException: "+customer.getCmnd());
+            System.out.println("Enter phone number customer"+customer.getPhoneNumber());
+            System.out.println("Enter email customer: "+customer.getEmail());
+            System.out.println("Enter type of Customer: "+customer.getTypeOfCustomer());
+        }
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter to continue");
+        scanner.nextLine();
+        displayMainMenu();
     }
 
-    private static void addNewCustomer() {
+    private void addNewCustomer() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Customer> customerArrayList = new ArrayList<Customer>();
         customerArrayList = CustomerCSV.readCustomerCsv();
         Customer customer = new Customer();
-        customer.setNameCustomer(scanner.nextLine());
-        customer.setBirthday(scanner.nextLine());
-        customer.setGender(scanner.nextLine());
-        customer.setCmnd(scanner.nextInt());
+        System.out.println("Enter name customer: ");
+        String name=nameCustomer();
+        customer.setNameCustomer(name);
+        System.out.print("Enter birthday customer: ");
+        String birthday=birthdayCustomer();
+        customer.setBirthday(birthday);
+        System.out.print("Enter gender customer: ");
+        String gender=genderCustomer();
+        customer.setGender(gender);
+        System.out.print("Enter IdCardException: ");
+        String cmnd=cmndCustomer();
+        customer.setCmnd(Integer.parseInt(cmnd));
+        System.out.println("Enter phone number customer");
         customer.setPhoneNumber(scanner.nextInt());
-        customer.setEmail(scanner.nextLine());
+        System.out.println("Enter email customer: ");
+        String email=emailCustomer();
+        customer.setEmail(email);
+        System.out.println("Enter type of Customer: ");
         customer.setTypeOfCustomer(scanner.nextLine());
         customer.setAddress(scanner.nextLine());
         customerArrayList.add(customer);
@@ -135,6 +163,126 @@ public class MainController {
             }
         } while (flag);
         return name;
+    }
+    public String emailCustomer(){
+        Scanner scanner=new Scanner(System.in);
+        boolean flag=true;
+        String email=null;
+        do {
+            try {
+                System.out.println("Enter email customer");
+                email=scanner.nextLine();
+                String pattern="^[a-zA-Z]+[a-z0-9]*@{1}[a-z]+.com$";
+                if (email.matches(pattern)){
+                    flag=false;
+                }
+                else {
+                    throw new Exception("Email phải đúng định dạng abc@abc.com");
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }while (flag);
+        return email;
+    }
+    public String genderCustomer(){
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
+        String gender = "";
+        do {
+            try {
+                System.out.print("Gioi tinh khach hang: ");
+                String inputGender = scanner.nextLine();
+                String lowCaseGender = inputGender.toLowerCase();
+                gender = String.valueOf(lowCaseGender.charAt(0)).toUpperCase();
+                for (int i = 1; i < lowCaseGender.length(); i++) {
+                    gender = gender.concat(String.valueOf(lowCaseGender.charAt(i)));
+                }
+                String patt = "(Male|Female|Unknow)";
+                if (gender.matches(patt)) {
+                    flag = false;
+                } else {
+                    throw new Exception("Gioi tinh phai la male, female or unknow");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        while (flag);
+        return gender;
+    }
+    public String cmndCustomer() {
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
+        String cmnd = "";
+        do {
+            try {
+                System.out.print("So cmnd khach hang: ");
+                cmnd = scanner.nextLine();
+                String patt = "[\\d]{3}+\\s+[\\d]{3}+\\s+[\\d]{3}";
+                if (cmnd.matches(patt)) {
+                    flag = false;
+                } else {
+                    throw new Exception("CMND phai co 9 chu so va theo dinh dang XXX XXX XXX");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        while (flag);
+        return cmnd;
+    }
+    public String birthdayCustomer() {
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
+        String birthDay = "";
+        do {
+            try {
+                System.out.print("Ngay sinh khach hang: ");
+                birthDay = scanner.nextLine();
+                String patt = "[0-9]{2}+\\/+[0-9]{2}+\\/+[0-9]{4}";
+                if (birthDay.matches(patt)) {
+                    String[] dayMonthYear = birthDay.split("/");
+                    Calendar calendar = Calendar.getInstance();
+                    if (Integer.parseInt(dayMonthYear[2]) > 1900 && calendar.get(Calendar.YEAR) - Integer.parseInt(dayMonthYear[2]) > 18) {
+                        if (Integer.parseInt(dayMonthYear[1]) > 0 && Integer.parseInt(dayMonthYear[1]) < 13) {
+                            if (Integer.parseInt(dayMonthYear[0]) > 0 && Integer.parseInt(dayMonthYear[0]) < 32) {
+                                flag = false;
+                            } else {
+                                throw new Exception("Ngay sinh phai tu 01 den 31");
+                            }
+                        } else {
+                            throw new Exception("Thang sinh phai tu 01 den 12");
+                        }
+                    } else {
+                        throw new Exception("Nam sinh phai lon hon 1900 va nho hon nam hien tai 18 nam");
+                    }
+                } else {
+                    throw new Exception("Ngay sinh viet theo dinh dang dd/mm/yyyy");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        while (flag);
+        return birthDay;
+    }
+    public String phoneNumberCustomer() {
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
+        String numberPhone = "";
+        do {
+            System.out.print("So dien thoai khach hang: ");
+            numberPhone = scanner.nextLine();
+            String patt = "^[0]+[\\d]{9}";
+            if (numberPhone.matches(patt)) {
+                flag = false;
+            } else {
+                System.out.println("So dien thoai nhap phai co 10 so");
+            }
+        }
+        while (flag);
+        return numberPhone;
     }
 
     public void addNewServices() {

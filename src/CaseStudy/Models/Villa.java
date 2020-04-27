@@ -1,57 +1,68 @@
 package CaseStudy.Models;
 
-public class Villa extends Services{
-        private String roomStandard;
-        private double poolArena;
-        private int numberOfFloors;
-        public String descriptionOfOtherAmenities;
+public class Villa extends Services {
+    private String roomStandard;
+    private String convenientDescription;
+    private double areaPool;
+    private int numberOfFloors;
 
-        public Villa() {
-        }
+    public String getRoomStandard() {
+        return roomStandard;
+    }
 
-        public Villa(String id, String nameSevices, double arenaUsed, int rental, int maxNumberOfPeople,
-                     String typeOfRent, String roomStandard, double poolArena, int numberOfFloors) {
-            super(id, nameSevices, arenaUsed, rental, maxNumberOfPeople, typeOfRent);
-            this.roomStandard = roomStandard;
-            this.poolArena = poolArena;
-            this.numberOfFloors = numberOfFloors;
-        }
+    public void setRoomStandard(String roomStandard) {
+        this.roomStandard = roomStandard;
+    }
 
-        public String getRoomStandard() {
-            return roomStandard;
-        }
+    public String getConvenientDescription() {
+        return convenientDescription;
+    }
 
-        public void setRoomStandard(String roomStandard) {
-            this.roomStandard = roomStandard;
-        }
+    public void setConvenientDescription(String convenientDescription) {
+        this.convenientDescription = convenientDescription;
+    }
 
-        public double getPoolArena() {
-            return poolArena;
-        }
+    public Double getAreaPool() {
+        return areaPool;
+    }
 
-        public void setPoolArena(double poolArena) {
-            this.poolArena = poolArena;
-        }
+    public void setAreaPool(Double areaPool) {
+        this.areaPool = areaPool;
+    }
 
-        public int getNumberOfFloors() {
-            return numberOfFloors;
-        }
+    public int getNumberOfFloors() {
+        return numberOfFloors;
+    }
 
-        public void setNumberOfFloors(int numberOfFloors) {
-            this.numberOfFloors = numberOfFloors;
-        }
+    public void setNumberOfFloors(int numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
+    }
 
-        @Override
-        public String showInfor() {
-            return "1. Mã dịch vụ: "+super.getId()+"\n"
-                    +"2. Tên dịch vụ: "+super.getNameSevices()+"\n"
-                    +"3. Diện tích sử dụng: "+super.getArenaUsed()+"\n"
-                    +"4. Chi phí thuê: "+super.getRental()+"\n"
-                    +"5. Số người tối đa: "+super.getMaxNumberOfPeople()+"\n"
-                    +"6. Kiểu thuê: "+super.getTypeOfRent()+"\n"
-                    +"7. Tiêu chuẩn phòng: "+this.getRoomStandard()+"\n"
-                    +"8. Diện tích hồ bơi: "+this.getPoolArena()+"\n"
-                    +"9. Số tầng: "+this.getNumberOfFloors()+"\n";
-        }
+    public Villa() {
+    }
 
+    public Villa(String id, String nameService, double areaUsed, double rentalCosts, int maxNumberOfPeople, String typeRent, String roomStandard, String convenientDescription, double areaPool, int numberOfFloors) {
+        super(id, nameService, areaUsed, rentalCosts, maxNumberOfPeople, typeRent);
+        this.roomStandard = roomStandard;
+        this.convenientDescription = convenientDescription;
+        this.areaPool = areaPool;
+        this.numberOfFloors = numberOfFloors;
+    }
+
+    @Override
+    public void showInfor() {
+        System.out.println(
+                "Service Id: " + super.getId() +
+                        "\nService Name: " + super.getServiceName() +
+                        "\nArea Used: " + super.getAreaUsed() +
+                        "\nRental Costs: " + super.getRentalCosts() +
+                        "\nMax Number Of People: " + super.getMaxNumberOfPeople() +
+                        "\nType Rent: " + super.getRentType() +
+                        "\nRoom Standard: " + this.roomStandard +
+                        "\nConvenient Description: " + this.convenientDescription +
+                        "\nArea Pool: " + this.areaPool +
+                        "\nNumber Of Floors: " + this.numberOfFloors
+        );
+    }
 }
+

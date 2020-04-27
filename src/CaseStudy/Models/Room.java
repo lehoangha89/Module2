@@ -1,34 +1,34 @@
 package CaseStudy.Models;
 
 public class Room extends Services {
-    private String FreeServiceIncluded="Nước miễn phí";
+    private String freeService;
+
+    public Room(String id, String nameService, double areaUsed, double rentalCosts, int maxNumberOfPeople, String typeRent, String freeService) {
+        super(id, nameService, areaUsed, rentalCosts, maxNumberOfPeople, typeRent);
+        this.freeService = freeService;
+    }
 
     public Room() {
     }
 
-    public Room(String id, String nameSevices, double arenaUsed, int rental, int maxNumberOfPeople,
-                String typeOfRent, String freeServiceIncluded) {
-        super(id, nameSevices, arenaUsed, rental, maxNumberOfPeople, typeOfRent);
-        FreeServiceIncluded = freeServiceIncluded;
+    public String getFreeService() {
+        return freeService;
     }
 
-    public String getFreeServiceIncluded() {
-        return FreeServiceIncluded;
-    }
-
-    public void setFreeServiceIncluded(String freeServiceIncluded) {
-        FreeServiceIncluded = freeServiceIncluded;
+    public void setFreeService(String freeService) {
+        this.freeService = freeService;
     }
 
     @Override
-    public String showInfor() {
-        return "1. Mã dịch vụ: "+super.getId()+"\n"
-                +"2. Tên dịch vụ: "+super.getNameSevices()+"\n"
-                +"3. Diện tích sử dụng: "+super.getArenaUsed()+"\n"
-                +"4. Chi phí thuê: "+super.getRental()+"\n"
-                +"5. Số người tối đa: "+super.getMaxNumberOfPeople()+"\n"
-                +"6. Kiểu thuê: "+super.getTypeOfRent()+"\n"
-                +"8. Dịch vụ miễn phí đi kèm: "+this.getFreeServiceIncluded()+"\n";
-
+    public void showInfor() {
+        System.out.println(
+                "Service Id: " + super.getId() +
+                        "\nService Name: " + super.getServiceName() +
+                        "\nArea Used: " + super.getAreaUsed() +
+                        "\nRental Costs: " + super.getRentalCosts() +
+                        "\nMax Number Of People: " + super.getMaxNumberOfPeople() +
+                        "\nType Rent: " + super.getRentType() +
+                        "\nRoom Standard: " + this.freeService
+        );
     }
 }

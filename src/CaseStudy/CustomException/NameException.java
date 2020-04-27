@@ -1,0 +1,7 @@
+package CaseStudy.CustomException;
+
+public class NameException extends Exception {
+    public NameException(String message) {
+        super(message);
+    }
+}
