@@ -7,6 +7,5 @@ public class Main {
         System.out.println(abc.hashCode());
         System.out.println(a.hashCode());
         System.out.println(Integer.toHexString(a.hashCode()));
-        ((Cỉrcle) circle)
     }
 }
