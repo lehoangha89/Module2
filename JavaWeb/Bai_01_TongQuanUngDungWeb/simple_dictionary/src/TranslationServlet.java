@@ -32,9 +32,14 @@ public class TranslationServlet extends HttpServlet {
         }
 
         writer.println("</html>");
+
+destroy();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
+
+
 }

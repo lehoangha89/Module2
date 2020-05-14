@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="BaiTap_QuanLySanPham:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/BaiTap_QuanLySanPham_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="BaiTap_QuanLySanPham/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="BaiTap_QuanLySanPham" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="E:/jstl-1.2.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
