@@ -11,10 +11,11 @@
     <title>Product</title>
 </head>
 <body>
+<form action="/discount" method="post">
 <fieldset>
 
     <legend>Discount Calculator</legend>
-    <form action="/discount" method="post">
+
         <h2>Product Discount Calculator</h2>
 
         <table border="1">
@@ -36,7 +37,8 @@
             <%--    Discount Percent: <input type="text" name="discount"/>(%)<br/>--%>
 
         </table>
-    </form>
+
 </fieldset>
+</form>
 </body>
 </html>
