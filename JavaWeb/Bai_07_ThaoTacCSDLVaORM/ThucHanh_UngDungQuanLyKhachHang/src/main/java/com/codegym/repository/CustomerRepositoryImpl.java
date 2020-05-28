@@ -1,6 +1,8 @@
 package com.codegym.repository;
 
 import com.codegym.model.Customer;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -9,6 +11,7 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 @Transactional
+@Repository
 public class CustomerRepositoryImpl implements CustomerRepository {
     @PersistenceContext
     private EntityManager em;

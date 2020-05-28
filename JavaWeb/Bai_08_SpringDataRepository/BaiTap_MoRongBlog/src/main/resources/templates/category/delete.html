@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa</title>
+</head>
+<body>
+<h1>Xóa</h1>
+<h2>Are you sure?</h2>
+<p>
+    <a href="/categorys">Danh Sách Thể Loại</a>
+</p>
+<form th:action="@{/delete-category}" th:object="${category}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Tên Thể Loại: </td>
+            <td th:text="*{name}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Xóa"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

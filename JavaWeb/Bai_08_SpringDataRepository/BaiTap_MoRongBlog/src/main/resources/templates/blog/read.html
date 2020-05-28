@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Read</title>
+</head>
+<body>
+<p>
+    <a href="/blogs">Blog list</a>
+</p>
+<form th:action="@{/read-blog}" th:object="${blog}">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Tên Bloger:</td>
+            <td th:text="${blog.name}"></td>
+        </tr>
+        <tr>
+            <td>Thể Loại:</td>
+            <td th:text="${blog.category.name}"></td>
+
+        </tr>
+        <tr>
+            <td>Nội Dung:</td>
+
+        </tr>
+    </table>
+    <textarea th:rows="10" th:cols="30" name="content" th:placeholder="content" th:field="*{writeBlog}"></textarea>
+</form>
+</body>
+</html>

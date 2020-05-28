@@ -166,9 +166,10 @@ public class ProductServlet extends HttpServlet {
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
         String addressProduction = request.getParameter("addressProduction");
+        String img=request.getParameter("img");
         int id = (int)(Math.random() * 10000);
 
-        Product product = new Product(id, name, price, addressProduction);
+        Product product = new Product(id, name, price, addressProduction,img);
         this.productService.save(product);
         RequestDispatcher dispatcher = request.getRequestDispatcher("product/create.jsp");
         request.setAttribute("message", "New product was created");

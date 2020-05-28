@@ -42,6 +42,10 @@
                 <td><input type="text" name="addressProduction" id="addressProduction"></td>
             </tr>
             <tr>
+                <td>img: </td>
+                <td><input type="text" name="img" id="img"></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td><input type="submit" value="Create product"></td>
             </tr>

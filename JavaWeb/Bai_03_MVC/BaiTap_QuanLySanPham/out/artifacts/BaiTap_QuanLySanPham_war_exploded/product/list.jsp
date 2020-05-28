@@ -21,7 +21,7 @@
         <td>Name</td>
         <td>Price</td>
         <td>Manufacturers Name</td>
-<%--        <td>Img</td>--%>
+        <td>Img</td>
         <td>Edit</td>
         <td>Delete</td>
     </tr>
@@ -30,7 +30,7 @@
             <td><a href="/products?action=view&id=${product.getId()}">${product.getName()}</a></td>
             <td>${product.getPrice()}</td>
             <td>${product.getAddressProduction()}</td>
-<%--            <td><img src="${product.getImg()}" width="100" height="100"></td>--%>
+            <td><img src="${product.getImg()}" width="100" height="100"></td>
             <td><a href="/products?action=edit&id=${product.getId()}">edit</a></td>
             <td><a href="/products?action=delete&id=${product.getId()}">delete</a></td>
         </tr>

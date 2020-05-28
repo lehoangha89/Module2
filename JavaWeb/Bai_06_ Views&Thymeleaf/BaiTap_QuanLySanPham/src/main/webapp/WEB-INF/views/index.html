@@ -20,6 +20,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Manufacturing</th>
+        <th>Image</th>
         <th>Edit</th>
         <th>Delete</th>
         <th>View</th>
@@ -31,6 +32,7 @@
         <td th:text="${row.getName()}"></td>
         <td th:text="${row.getPrice()}"></td>
         <td th:text="${row.getManufacturing()}"></td>
+        <td><img th:src="${row.getImg()}" width="100" height="100"></td>
         <td><a th:href="@{/product/{id}/edit(id=${row.getId()})}">edit</a></td>
         <td><a th:href="@{/product/{id}/delete(id=${row.getId()})}">delete</a></td>
         <td><a th:href="@{/product/{id}/view(id=${row.getId()})}">view</a></td>
