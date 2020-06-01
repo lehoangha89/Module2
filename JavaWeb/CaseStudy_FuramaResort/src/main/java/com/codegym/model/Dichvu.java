@@ -18,6 +18,9 @@ public class Dichvu {
 
     @OneToMany(mappedBy = "dichvu")
     private Set<Contract> contracts;
+    @ManyToOne
+    @JoinColumn(name = "type_service_id")
+    private TypeDichvu typeDichvu;
 
     public Dichvu() {
     }
@@ -93,5 +96,13 @@ public class Dichvu {
 
     public void setContracts(Set<Contract> contracts) {
         this.contracts = contracts;
+    }
+
+    public TypeDichvu getTypeDichvu() {
+        return typeDichvu;
+    }
+
+    public void setTypeDichvu(TypeDichvu typeDichvu) {
+        this.typeDichvu = typeDichvu;
     }
 }

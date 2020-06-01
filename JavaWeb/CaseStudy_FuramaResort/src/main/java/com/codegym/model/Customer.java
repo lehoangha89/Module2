@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,6 +19,10 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer")
     private Set<Contract> contracts;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_type_id")
+    private CustomerType customerType;
 
     public Customer() {
     }
@@ -93,5 +98,13 @@ public class Customer {
 
     public void setContracts(Set<Contract> contracts) {
         this.contracts = contracts;
+    }
+
+    public CustomerType getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
     }
 }

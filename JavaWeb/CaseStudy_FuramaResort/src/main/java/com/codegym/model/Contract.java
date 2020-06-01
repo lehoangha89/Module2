@@ -2,6 +2,7 @@ package com.codegym.model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "contracts")
@@ -14,16 +15,20 @@ public class Contract {
     private String deposits;
     private String totalMoney;
 
-    @ManyToMany(mappedBy = "contracts")
-    private Collection<ContractDetails> contractDetails;
+    @OneToMany(mappedBy = "contract")
+    private Set<ContractDetails> contractDetails;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "dịchvu_id")
+    @JoinColumn(name = "dichvu_id")
     private Dichvu dichvu;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 
     public Contract() {
     }
@@ -75,11 +80,11 @@ public class Contract {
         this.totalMoney = totalMoney;
     }
 
-    public Collection<ContractDetails> getContractDetails() {
+    public Set<ContractDetails> getContractDetails() {
         return contractDetails;
     }
 
-    public void setContractDetails(Collection<ContractDetails> contractDetails) {
+    public void setContractDetails(Set<ContractDetails> contractDetails) {
         this.contractDetails = contractDetails;
     }
 

@@ -1,8 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "contractdetails")
@@ -12,11 +11,9 @@ public class ContractDetails {
     private Long id;
     private int amount;
 
-    @ManyToMany
-    @JoinTable(name = "contractdetails_contract",
-            joinColumns = @JoinColumn(name = "contractdetails_id"),
-            inverseJoinColumns = @JoinColumn(name = "contract_id"))
-    private Collection<Contract> contracts;
+   @ManyToOne
+   @JoinColumn(name = "contract_id")
+   private Contract contract;
 
     public ContractDetails() {
     }
@@ -41,11 +38,11 @@ public class ContractDetails {
         this.amount = amount;
     }
 
-    public Collection<Contract> getContracts() {
-        return contracts;
+    public Contract getContract() {
+        return contract;
     }
 
-    public void setContracts(Collection<Contract> contracts) {
-        this.contracts = contracts;
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
 }

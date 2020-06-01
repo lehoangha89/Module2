@@ -10,6 +10,7 @@ public class Province {
 @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+
     @OneToMany(mappedBy = "province")
     private Set<Customer> customers;
 
