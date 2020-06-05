@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Contract</title>
+</head>
+<body>
+<h1>Delete contract</h1>
+<h2>Are you sure?</h2>
+<p>
+    <a href="/list-contract">List Contract</a>
+</p>
+<form th:action="@{/delete-contract}" th:object="${contractDelete}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Contract Date:</td>
+            <td th:text="${contractDelete.contractDate}"></td>
+        </tr>
+        <tr>
+            <td>Contract End Date:</td>
+            <td th:text="${contractDelete.contractEndDate}"></td>
+        </tr>
+        <tr>
+            <td>Deposits:</td>
+            <td th:text="${contractDelete.deposits}"></td>
+        </tr>
+        <tr>
+            <td>Total Money:</td>
+            <td th:text="${contractDelete.totalMoney}"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Delete contract"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -11,8 +11,7 @@ public class TypeDichvu {
     private Long id;
     private String dichvuType;
 
-    @OneToMany
-    @JoinColumn(name ="typeDichvu" )
+    @OneToMany(mappedBy = "typeDichvu")
     private Set<Dichvu> dichvus;
 
     public TypeDichvu() {

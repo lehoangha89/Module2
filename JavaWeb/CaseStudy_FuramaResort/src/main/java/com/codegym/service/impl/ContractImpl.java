@@ -12,13 +12,24 @@ import org.springframework.stereotype.Service;
 public class ContractImpl implements ContractService {
     @Autowired
     private ContractRepository contractRepository;
+
     @Override
     public Page<Contract> findAll(Pageable pageable) {
         return contractRepository.findAll(pageable);
     }
 
     @Override
+    public Contract findById(Long id) {
+        return contractRepository.findById(id).orElse(null);
+    }
+
+    @Override
     public void save(Contract contract) {
         contractRepository.save(contract);
+    }
+
+    @Override
+    public void delete(Long id) {
+        contractRepository.deleteById(id);
     }
 }

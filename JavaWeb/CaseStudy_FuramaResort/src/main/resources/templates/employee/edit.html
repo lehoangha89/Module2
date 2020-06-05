@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+</head>
+<body>
+<h1>Edit Employee</h1>
+<p>
+    <a href="/list-employee">List Employee</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-employee}" th:object="${editEmployee}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table border="1">
+        <tr>
+            <th></th>
+            <th>Old data</th>
+            <th>New data</th>
+        </tr>
+
+        <th:block>
+
+            <tr>
+                <td>Name Employee:</td>
+                <td><p th:text="*{nameEmployee}"/></td>
+                <td><input type="text" th:field="*{nameEmployee}"/></td>
+
+            </tr>
+            <tr>
+                <td>Birthday:</td>
+                <td><p th:text="*{birthday}"/></td>
+                <td><input type="date" th:field="*{birthday}"/>
+                    <p th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></p></td>
+            </tr>
+            <tr>
+                <td>Id Card:</td>
+                <td><p th:text="*{cmnd}"/></td>
+                <td><input type="text" th:field="*{cmnd}"/>
+                    <p th:if="${#fields.hasErrors('cmnd')}" th:errors="*{cmnd}"></p></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><p th:text="*{salary}"/></td>
+                <td><input type="text" th:field="*{salary}"/>
+<!--                    <p th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></p>-->
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><p th:text="*{email}"/></td>
+                <td><input type="text" th:field="*{email}"/>
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><p th:text="*{phoneNumber}"/></td>
+                <td><input type="text" th:field="*{phoneNumber}"/>
+                    <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><p th:text="*{address}"/></td>
+                <td><input type="text" th:field="*{address}"/></td>
+            </tr>
+            <tr>
+                <td>Position:</td>
+                <td><p th:text="*{positionEmployee.position}"/></td>
+                <td>
+                    <select name="positionEmployee">
+                        <option th:each="po : ${position_employee}"
+                                th:value="${po.id}"
+                                th:text="${po.position}"
+                                th:selected="(${po.id} == *{positionEmployee.id})">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Level:</td>
+                <td><p th:text="*{levelEmployee.level}"/></td>
+                <td>
+                    <select name="levelEmployee">
+                        <option th:each="lev : ${level_employee}"
+                                th:value="${lev.id}"
+                                th:text="${lev.level}"
+                                th:selected="(${lev.id} == *{levelEmployee.id})">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Part:</td>
+                <td><p th:text="*{partEmployee.part}"/></td>
+                <td>
+                    <select name="partEmployee">
+                        <option th:each="par : ${part_employee}"
+                                th:value="${par.id}"
+                                th:text="${par.part}"
+                                th:selected="(${par.id} == *{partEmployee.id})">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update Employee"></td>
+            </tr>
+
+        </th:block>
+    </table>
+</form>
+</body>
+</html>

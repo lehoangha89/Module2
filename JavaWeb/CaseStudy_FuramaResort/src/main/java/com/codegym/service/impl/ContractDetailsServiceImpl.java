@@ -13,12 +13,22 @@ public class ContractDetailsServiceImpl implements ContractDetailsService {
     @Autowired
     private ContractDetailsRepository contractDetailsRepository;
     @Override
-    public Page<ContractDetails> findAll(Pageable pageable) {
-        return contractDetailsRepository.findAll(pageable);
+    public Iterable<ContractDetails> findAll() {
+        return contractDetailsRepository.findAll();
+    }
+
+    @Override
+    public ContractDetails findById(Long id) {
+        return contractDetailsRepository.findById(id).orElse(null);
     }
 
     @Override
     public void save(ContractDetails contractDetails) {
         contractDetailsRepository.save(contractDetails);
+    }
+
+    @Override
+    public void delete(Long id) {
+        contractDetailsRepository.deleteById(id);
     }
 }

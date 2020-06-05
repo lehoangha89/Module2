@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Service</title>
+</head>
+<body>
+<h1>Delete Service</h1>
+<h2>Are you sure?</h2>
+<p>
+    <a href="/list-service">List Service</a>
+</p>
+<form th:action="@{/delete-service}" th:object="${serviceDelete}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name Service:</td>
+            <td th:text="${serviceDelete.nameService}"></td>
+        </tr>
+        <tr>
+            <td>Area User:</td>
+            <td th:text="${serviceDelete.areaUser}"></td>
+        </tr>
+        <tr>
+            <td>Number Of Floors:</td>
+            <td th:text="${serviceDelete.numberOfFloors}"></td>
+        </tr>
+        <tr>
+            <td>Max Number Of People:</td>
+            <td th:text="${serviceDelete.maxNumberOfPeople}"></td>
+        </tr>
+        <tr>
+            <td>Cost:</td>
+            <td th:text="${serviceDelete.cost}"></td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td th:text="${serviceDelete.status}"></td>
+        </tr>
+        <tr>
+            <td>Type Service:</td>
+            <td th:text="${serviceDelete.typeDichvu.dichvuType}"></td>
+        </tr>
+        <tr>
+            <td>Type Of Rent:</td>
+            <td th:text="${serviceDelete.typeOfRent.nameTypeOfRent}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Delete service"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

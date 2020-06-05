@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit service</title>
+</head>
+<body>
+<h1>Edit Service</h1>
+<p>
+    <a href="/list-service">List Service</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-service}" th:object="${serviceEdit}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table border="1">
+        <tr>
+            <th></th>
+            <th>Old data</th>
+            <th>New data</th>
+        </tr>
+
+        <th:block>
+
+            <tr>
+                <td>ID service:</td>
+                <td><p th:text="*{idService}"/></td>
+                <td><input type="text" th:field="*{idService}"/>
+                    <p th:if="${#fields.hasErrors('idService')}" th:errors="*{idService}"></p></td>
+            </tr>
+            <tr>
+                <td>Name service:</td>
+                <td><p th:text="*{nameService}"/></td>
+                <td><input type="text" th:field="*{nameService}"/></td>
+            </tr>
+            <tr>
+                <td>Area User:</td>
+                <td><p th:text="*{areaUser}"/></td>
+                <td><input type="text" th:field="*{areaUser}"/></td>
+            </tr>
+            <tr>
+                <td>Number Of Floors:</td>
+                <td><p th:text="*{numberOfFloors}"/></td>
+                <td><input type="text" th:field="*{numberOfFloors}"/></td>
+            </tr>
+            <tr>
+                <td>Max Number Of People:</td>
+                <td><p th:text="*{maxNumberOfPeople}"/></td>
+                <td><input type="text" th:field="*{maxNumberOfPeople}"/></td>
+            </tr>
+            <tr>
+                <td>Cost:</td>
+                <td><p th:text="*{cost}"/></td>
+                <td><input type="text" th:field="*{cost}"/></td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td><p th:text="*{status}"/></td>
+                <td><input type="text" th:field="*{status}"/></td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <select name="typeDichvu">
+                        <option th:each="typeService : ${type_service}"
+                                th:value="${typeService.id}"
+                                th:text="${typeService.dichvuType}"
+                                th:selected="(${typeService.id} == *{typeDichvu.id})"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <select name="typeOfRent">
+                        <option th:each="p : ${type_ofRent}"
+                                th:value="${p.id}"
+                                th:text="${p.nameTypeOfRent}"
+                                th:selected="(${p.id} == *{typeOfRent.id})"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update Service"></td>
+            </tr>
+
+        </th:block>
+    </table>
+</form>
+</body>
+</html>

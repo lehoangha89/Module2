@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Contract</title>
+</head>
+<body>
+<h1>Edit contract</h1>
+<p>
+    <a href="/list-contract">List Contract</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-contract}" th:object="${contractEdit}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table border="1">
+        <tr>
+            <th></th>
+            <th>Old data</th>
+            <th>New data</th>
+        </tr>
+
+        <th:block>
+            <tr>
+                <td>Contract Date:</td>
+                <td><p th:text="*{contractDate}"/></td>
+                <td><input type="date" th:field="*{contractDate}"/>
+                   </td>
+            </tr>
+            <tr>
+                <td>Contract End Date:</td>
+                <td><p th:text="*{contractEndDate}"/></td>
+                <td><input type="date" th:field="*{contractEndDate}"/></td>
+            </tr>
+            <tr>
+                <td>Deposits:</td>
+                <td><p th:text="*{deposits}"/></td>
+                <td><input type="text" th:field="*{deposits}"/>
+                    <p th:if="${#fields.hasErrors('deposits')}" th:errors="*{deposits}"></p></td>
+            </tr>
+            <tr>
+                <td>Total Money:</td>
+                <td><p th:text="*{totalMoney}"/></td>
+                <td><input type="text" th:field="*{totalMoney}"/>
+                    <p th:if="${#fields.hasErrors('totalMoney')}" th:errors="*{totalMoney}"></p></td>
+            </tr>
+            <tr>
+                <td>Employee:</td>
+                <td><p th:text="*{employee.nameEmployee}"/></td>
+                <td>
+                    <select name="employee">
+                        <option th:each="em : ${employees}"
+                                th:value="${em.id}"
+                                th:text="${em.nameEmployee}"
+                                th:selected="(${em.id} == *{employee.id})">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer:</td>
+                <td><p th:text="*{customer.name}"/></td>
+                <td>
+                    <select name="customer">
+                        <option th:each="cus : ${customers}"
+                                th:value="${cus.id}"
+                                th:text="${cus.name}"
+                                th:selected="(${cus.id} == *{customer.id})">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
+<!--            <tr>-->
+<!--                <td>Customer:</td>-->
+<!--                <td><p th:text="*{customer.name}"/></td>-->
+<!--                <td><input type="text" th:field="*{customer.name}"/></td>-->
+
+<!--            </tr>-->
+            <tr>
+                <td>Service:</td>
+                <td><p th:text="*{dichvu.nameService}"/></td>
+                <td>
+                    <select name="dichvu">
+                        <option th:each="dichvu : ${dichvus}"
+                                th:value="${dichvu.id}"
+                                th:text="${dichvu.nameService}"
+                                th:selected="(${dichvu.id} == *{dichvu.id})">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update contract"></td>
+            </tr>
+
+        </th:block>
+    </table>
+</form>
+</body>
+</html>

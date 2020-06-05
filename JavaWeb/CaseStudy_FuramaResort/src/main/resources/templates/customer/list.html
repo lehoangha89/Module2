@@ -12,8 +12,13 @@
     <input name="keyword" type="text"/>
     <input type="submit" value="Search"/>
 </form><br/>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<th:block th:if="${customerList.getTotalPages()!=0}">
 <table border="1">
     <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Birthday</th>
         <th>Id Card</th>
@@ -26,6 +31,7 @@
     </tr>
     <th:block th:each="customer : ${customerList}">
         <tr>
+            <td th:text="${customer.idCustomer}"></td>
             <td th:text="${customer.name}"></td>
             <td th:text="${customer.bidrthday}"></td>
             <td th:text="${customer.cmnd}"></td>
@@ -44,6 +50,6 @@
     <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
     <a th:href="@{'/list-customer'(page=${customerList.number + 1},keyword=${keyword})}" th:if="${customerList.hasNext()}">Next</a>
 </div>
-
+</th:block>
 </body>
 </html>

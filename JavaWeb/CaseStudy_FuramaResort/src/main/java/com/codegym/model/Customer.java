@@ -1,6 +1,11 @@
 package com.codegym.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 import java.util.Set;
 
@@ -10,10 +15,16 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotEmpty
+    @Pattern(regexp = "^(KH-)+[0-9]{4}$",message = "Định dạng đúng KH-XXXX")
+    private String idCustomer;
     private String name;
     private String bidrthday;
+    @Pattern(regexp = "^([0-9]{9})|([0-9]{12}$)",message = "9 hoặc 12 số")
     private String cmnd;
+    @Pattern(regexp = "^((090|091|(\\(84\\)\\+91)|(\\(84\\)\\+90))+[0-9]{7})$",message = "vd:0901234567, (84)+901234567")
     private String phoneNumber;
+    @Email(message = "định dạng Email không chính xác")
     private String email;
     private String address;
 
@@ -27,7 +38,8 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String name, String bidrthday, String cmnd, String phoneNumber, String email, String address) {
+    public Customer(String idCustomer,String name, String bidrthday, String cmnd, String phoneNumber, String email, String address) {
+        this.idCustomer = idCustomer;
         this.name = name;
         this.bidrthday = bidrthday;
         this.cmnd = cmnd;
@@ -42,6 +54,14 @@ public class Customer {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdCustomer() {
+        return idCustomer;
+    }
+
+    public void setIdCustomer(String idCustomer) {
+        this.idCustomer = idCustomer;
     }
 
     public String getName() {

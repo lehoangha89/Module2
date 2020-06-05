@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ContractDetailsService {
-    Page<ContractDetails> findAll(Pageable pageable);
+    Iterable<ContractDetails> findAll();
+    ContractDetails findById(Long id);
     void save(ContractDetails contractDetails);
+    void delete(Long id);
 }

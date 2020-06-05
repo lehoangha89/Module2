@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Contract</title>
+</head>
+<body>
+<h1>Create contract</h1>
+<p>
+    <a href="/list-contract">List Contract</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-contract}" th:object="${createContract}" method="post">
+    <table>
+        <tr>
+            <td>Contract date:</td>
+            <td><input type="date" th:field="*{contractDate}"/></td>
+        </tr>
+        <tr>
+            <td>Contract end date:</td>
+            <td><input type="date" th:field="*{contractEndDate}"/></td>
+
+        </tr>
+        <tr>
+            <td>Deposits:</td>
+            <td><input type="text" th:field="*{deposits}"/>
+                <p th:if="${#fields.hasErrors('deposits')}" th:errors="*{deposits}"></p></td>
+        </tr>
+        <tr>
+            <td>Total Money:</td>
+            <td><input type="text" th:field="*{totalMoney}"/>
+                <p th:if="${#fields.hasErrors('totalMoney')}" th:errors="*{totalMoney}"></p></td>
+        </tr>
+        <tr>
+            <td>Employee:</td>
+            <td>
+                <select th:field="*{employee}">
+                    <option th:each="em : ${employees}" th:value="${em.id}" th:text="${em.nameEmployee}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Customer:</td>
+            <td>
+                <select th:field="*{customer}">
+                    <option th:each="cus : ${customers}" th:value="${cus.id}" th:text="${cus.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Service:</td>
+            <td>
+                <select th:field="*{dichvu}">
+                    <option th:each="dicvu: ${dichvus}" th:value="${dicvu.id}" th:text="${dicvu.nameService}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create Contract"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

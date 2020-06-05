@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 
 @Entity
@@ -9,11 +10,15 @@ public class ContractDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Min(1)
     private int amount;
 
-   @ManyToOne
-   @JoinColumn(name = "contract_id")
-   private Contract contract;
+    @ManyToOne
+    @JoinColumn(name = "contracts_id")
+    private Contract contract;
+    @ManyToOne
+    @JoinColumn(name = "dichvu_dikem_id")
+    private DichvuDiKem dichvuDiKem;
 
     public ContractDetails() {
     }
@@ -44,5 +49,13 @@ public class ContractDetails {
 
     public void setContract(Contract contract) {
         this.contract = contract;
+    }
+
+    public DichvuDiKem getDichvuDiKem() {
+        return dichvuDiKem;
+    }
+
+    public void setDichvuDiKem(DichvuDiKem dichvuDiKem) {
+        this.dichvuDiKem = dichvuDiKem;
     }
 }

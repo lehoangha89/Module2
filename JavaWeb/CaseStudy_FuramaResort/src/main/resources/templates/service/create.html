@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Service</title>
+</head>
+<body>
+<h1>Create service</h1>
+<p>
+    <a href="/list-service">List Service</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-service}" th:object="${serviceCreate}" method="post">
+    <table>
+        <tr>
+            <td>ID Service:</td>
+            <td><input type="text" th:field="*{idService}"/>
+                <p th:if="${#fields.hasErrors('idService')}" th:errors="*{idService}"></p></td>
+        </tr>
+        <tr>
+            <td>Name Service:</td>
+            <td><input type="text" th:field="*{nameService}"/></td>
+        </tr>
+        <tr>
+            <td>Area User:</td>
+            <td><input type="text" th:field="*{areaUser}"/></td>
+        </tr>
+        <tr>
+            <td>Number Of Floors:</td>
+            <td><input type="text" th:field="*{numberOfFloors}"/></td>
+        </tr>
+        <tr>
+            <td>Max Number Of People:</td>
+            <td><input type="text" th:field="*{maxNumberOfPeople}"/></td>
+        </tr>
+        <tr>
+            <td>Cost:</td>
+            <td><input type="text" th:field="*{cost}"/></td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td><input type="text" th:field="*{status}"/></td>
+        </tr>
+        <tr>
+            <td>Type Service:</td>
+            <td>
+                <select th:field="*{typeDichvu}">
+                    <option th:each="ts : ${type_service}" th:value="${ts.id}" th:text="${ts.dichvuType}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Type Of Rent:</td>
+            <td>
+                <select th:field="*{typeOfRent}">
+                    <option th:each="tor : ${type_ofRent}" th:value="${tor.id}" th:text="${tor.nameTypeOfRent}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create Service"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

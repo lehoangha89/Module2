@@ -7,4 +7,7 @@ import org.springframework.data.domain.Pageable;
 public interface DichvuService {
     Page<Dichvu> findAll(Pageable pageable);
     void save(Dichvu dichvu);
+    Dichvu findById(Long id);
+    void delete(Long id);
+    Page<Dichvu> findAllByNameServiceContaining(String nameService, Pageable pageable);
 }

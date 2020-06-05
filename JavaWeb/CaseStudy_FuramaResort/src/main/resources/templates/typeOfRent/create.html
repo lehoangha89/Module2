@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create Type Of Rent</h1>
+<p>
+    <a href="/list-service">List Service</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-typeOfrent}" th:object="${createTypeOfRent}" method="post">
+    <table>
+        <tr>
+            <td>Type Name</td>
+            <td><input type="text" th:field="*{nameTypeOfRent}"></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" th:field="*{price}">
+                <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Create">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

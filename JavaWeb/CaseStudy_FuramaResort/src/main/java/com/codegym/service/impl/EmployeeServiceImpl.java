@@ -12,13 +12,29 @@ import org.springframework.stereotype.Service;
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Override
+    public Page<Employee> findAllByNameEmployeeContaining(String name, Pageable pageable) {
+        return employeeRepository.findAllByNameEmployeeContaining(name,pageable);
+    }
+
     @Override
     public Page<Employee> findAll(Pageable pageable) {
         return employeeRepository.findAll(pageable);
     }
 
     @Override
+    public Employee findById(Long id) {
+        return employeeRepository.findById(id).orElse(null);
+    }
+
+    @Override
     public void save(Employee employee) {
         employeeRepository.save(employee);
+    }
+
+    @Override
+    public void delete(Long id) {
+        employeeRepository.deleteById(id);
     }
 }

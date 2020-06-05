@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create Position</h1>
+<p>
+    <a href="/list-employee">List Employee</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-position}" th:object="${createPosition}" method="post">
+    <table>
+        <tr>
+            <td>Position</td>
+            <td><input type="text" th:field="*{position}">
+                <p th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></p></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Create">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

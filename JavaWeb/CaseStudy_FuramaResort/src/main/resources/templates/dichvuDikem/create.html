@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create Accompanied Service</h1>
+<p>
+    <a href="/list-service">List Service</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-dikem}" th:object="${createDikem}" method="post">
+    <table>
+        <tr>
+            <td>Name Accompanied:</td>
+            <td><input type="text" th:field="*{nameAccompanied}"></td>
+        </tr>
+        <tr>
+            <td>Price Accompanied:</td>
+            <td><input type="text" th:field="*{priceAccompanied}">
+                <p th:if="${#fields.hasErrors('priceAccompanied')}" th:errors="*{priceAccompanied}"></p></td>
+        </tr>
+        <tr>
+            <td>Unit:</td>
+            <td><input type="text" th:field="*{unit}">
+                <p th:if="${#fields.hasErrors('unit')}" th:errors="*{unit}"></p></td>
+        </tr>
+        <tr>
+            <td>Status Of Use:</td>
+            <td><input type="text" th:field="*{statusOfUse}"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Create">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

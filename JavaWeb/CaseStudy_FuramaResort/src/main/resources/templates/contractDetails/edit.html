@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Contract Details</title>
+</head>
+<body>
+<h1>Edit contract details</h1>
+<p>
+    <a href="/list-contractDetails">List Contract Details</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-contractDetails}" th:object="${contractDetailsEdit}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table border="1">
+        <tr>
+            <th></th>
+            <th>Old data</th>
+            <th>New data</th>
+        </tr>
+
+        <th:block>
+            <tr>
+                <td>Amount:</td>
+                <td><p th:text="*{amount}"/></td>
+                <td><input type="text" th:field="*{amount}"/></td>
+
+            </tr>
+            <input th:type="hidden" th:field="*{contract.id}">
+            <tr>
+                <td>Name Accompanied:</td>
+                <td><p th:text="*{dichvuDiKem.nameAccompanied}"/></td>
+                <td>
+                    <select name="dichvuDiKem">
+                        <option th:each="dichvu : ${dichvudi_kem}"
+                                th:value="${dichvu.id}"
+                                th:text="${dichvu.nameAccompanied}"
+                                th:selected="(${dichvu.id} == *{dichvuDiKem.id})">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update contract details"></td>
+            </tr>
+
+        </th:block>
+    </table>
+</form>
+</body>
+</html>

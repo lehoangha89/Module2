@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DichvuServiceImpl implements DichvuService {
+
     @Autowired
     private DichvuRepository dichvuRepository;
+
     @Override
     public Page<Dichvu> findAll(Pageable pageable) {
         return dichvuRepository.findAll(pageable);
@@ -20,5 +22,20 @@ public class DichvuServiceImpl implements DichvuService {
     @Override
     public void save(Dichvu dichvu) {
         dichvuRepository.save(dichvu);
+    }
+
+    @Override
+    public Dichvu findById(Long id) {
+        return dichvuRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void delete(Long id) {
+        dichvuRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Dichvu> findAllByNameServiceContaining(String nameService, Pageable pageable) {
+        return dichvuRepository.findAllByNameServiceContaining(nameService,pageable);
     }
 }

@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.util.Collection;
 import java.util.Set;
 
@@ -8,22 +9,24 @@ import java.util.Set;
 @Table(name = "contracts")
 public class Contract {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String contractDate;
     private String contractEndDate;
+    @Min(1)
     private String deposits;
+    @Min(1)
     private String totalMoney;
 
     @OneToMany(mappedBy = "contract")
     private Set<ContractDetails> contractDetails;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customers_id")
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "dichvu_id")
+    @JoinColumn(name = "services_id")
     private Dichvu dichvu;
 
     @ManyToOne
@@ -102,5 +105,13 @@ public class Contract {
 
     public void setDichvu(Dichvu dichvu) {
         this.dichvu = dichvu;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

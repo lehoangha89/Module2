@@ -24,6 +24,12 @@
     <th:block>
 
             <tr>
+                <td>ID:</td>
+                <td><p th:text="*{idCustomer}"/></td>
+                <td><input type="text" th:field="*{idCustomer}"/>
+                    <p th:if="${#fields.hasErrors('idCustomer')}" th:errors="*{idCustomer}"></p></td>
+            </tr>
+        <tr>
                 <td>Name:</td>
                 <td><p th:text="*{name}"/></td>
                 <td><input type="text" th:field="*{name}"/></td>
@@ -31,22 +37,25 @@
             <tr>
                 <td>Birthday:</td>
                 <td><p th:text="*{bidrthday}"/></td>
-                <td><input type="text" th:field="*{bidrthday}"/></td>
+                <td><input type="date" th:field="*{bidrthday}"/></td>
             </tr>
             <tr>
                 <td>Id Card:</td>
                 <td><p th:text="*{cmnd}"/></td>
-                <td><input type="text" th:field="*{cmnd}"/></td>
+                <td><input type="text" th:field="*{cmnd}"/>
+                    <p th:if="${#fields.hasErrors('cmnd')}" th:errors="*{cmnd}"></p></td>
             </tr>
             <tr>
                 <td>Phone Number:</td>
                 <td><p th:text="*{phoneNumber}"/></td>
-                <td><input type="text" th:field="*{phoneNumber}"/></td>
+                <td><input type="text" th:field="*{phoneNumber}"/>
+                    <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p></td>
             </tr>
             <tr>
                 <td>Email:</td>
                 <td><p th:text="*{email}"/></td>
-                <td><input type="text" th:field="*{email}"/></td>
+                <td><input type="text" th:field="*{email}"/>
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p></td>
             </tr>
             <tr>
                 <td>Address:</td>
@@ -55,12 +64,15 @@
             </tr>
             <tr>
                 <td>Type:</td>
+                <td><p th:text="*{customerType.nameType}"/></td>
                 <td>
                     <select name="customerType">
                         <option th:each="p : ${customer_type}"
                                 th:value="${p.id}"
                                 th:text="${p.nameType}"
-                                th:selected="(${p.id} == *{customerType.id})"></option>
+                                th:selected="(${p.id} == *{customerType.id})">
+
+                        </option>
                     </select>
                 </td>
             </tr>

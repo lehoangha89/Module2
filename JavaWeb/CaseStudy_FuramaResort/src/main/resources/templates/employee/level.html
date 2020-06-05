@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Level</h1>
+<p>
+    <a href="/list-employee">List Employee</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-level}" th:object="${createLevel}" method="post">
+    <table>
+        <tr>
+            <td>Level:</td>
+            <td><input type="text" th:field="*{level}">
+                <p th:if="${#fields.hasErrors('level')}" th:errors="*{level}"></p></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Create">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

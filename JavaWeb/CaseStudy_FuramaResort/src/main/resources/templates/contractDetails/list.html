@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create-contractDetails">Create new Contract Details</a>
+<h1>Contract</h1>
+<!--<form>-->
+<!--    Search by name:-->
+<!--    <input name="keyword" type="text"/>-->
+<!--    <input type="submit" value="Search"/>-->
+<!--</form>-->
+<br/>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>ID Contract</th>
+        <th>Name Accompanied</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="details : ${contractDetailsList}">
+        <tr>
+            <td th:text="${details.id}"></td>
+            <td th:text="${details.amount}"></td>
+            <td th:text="${details.contract.id}"></td>
+            <td th:text="${details.dichvuDiKem.nameAccompanied}"></td>
+            <td><a th:href="@{/edit-contractDetails/__${details.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-contractDetails/__${details.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<!--<div>-->
+<!--    <a th:href="@{'/list-contract'(page=${contractList.number - 1},keyword=${keyword})}" th:if="${contractList.hasPrevious()}">Previous</a>-->
+<!--    <span th:text="${contractList.number + 1}"></span>/<span th:text="${contractList.totalPages}"></span>-->
+<!--    <a th:href="@{'/list-contract'(page=${contractList.number + 1},keyword=${keyword})}" th:if="${contractList.hasNext()}">Next</a>-->
+<!--</div>-->
+
+</body>
+</html>

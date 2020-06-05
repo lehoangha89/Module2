@@ -1,6 +1,9 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
@@ -9,10 +12,17 @@ public class Dichvu {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotEmpty
+    @Pattern(regexp = "^(DV-)+\\d{4}$")
+    private String idService;
     private String nameService;
+    @Min(1)
     private int areaUser;
+    @Min(1)
     private int numberOfFloors;
+    @Min(1)
     private int maxNumberOfPeople;
+    @Min(1)
     private int cost;
     private String status;
 
@@ -21,11 +31,23 @@ public class Dichvu {
     @ManyToOne
     @JoinColumn(name = "type_service_id")
     private TypeDichvu typeDichvu;
+    @ManyToOne
+    @JoinColumn(name = "type_of_rent_id")
+    private TypeOfRent typeOfRent;
+
+    public TypeOfRent getTypeOfRent() {
+        return typeOfRent;
+    }
+
+    public void setTypeOfRent(TypeOfRent typeOfRent) {
+        this.typeOfRent = typeOfRent;
+    }
 
     public Dichvu() {
     }
 
-    public Dichvu(String nameService, int areaUser, int numberOfFloors, int maxNumberOfPeople, int cost, String status) {
+    public Dichvu(String idService,String nameService, int areaUser, int numberOfFloors, int maxNumberOfPeople, int cost, String status) {
+        this.idService = idService;
         this.nameService = nameService;
         this.areaUser = areaUser;
         this.numberOfFloors = numberOfFloors;
@@ -40,6 +62,14 @@ public class Dichvu {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdService() {
+        return idService;
+    }
+
+    public void setIdService(String idService) {
+        this.idService = idService;
     }
 
     public String getNameService() {

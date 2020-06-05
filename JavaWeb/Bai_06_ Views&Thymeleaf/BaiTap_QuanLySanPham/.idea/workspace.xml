@@ -2,12 +2,99 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05894055-c4c1-49e4-84f5-841de1667c9f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Bai_12_I18N/ThucHanh_UngDungBlogQuocTe/src/main/java/com/codegym/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Bai_12_I18N/ThucHanh_UngDungBlogQuocTe/src/main/java/com/codegym/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Bai_12_I18N/ThucHanh_UngDungBlogQuocTe/src/main/resources/message.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Bai_12_I18N/ThucHanh_UngDungBlogQuocTe/src/main/resources/templates/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Bai_12_I18N/ThucHanh_UngDungBlogQuocTe/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Bai_08_SpringDataRepository/ThucHanh_QuanLyTinh/src/main/java/com/codegym/model/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_08_SpringDataRepository/ThucHanh_QuanLyTinh/src/main/java/com/codegym/model/Province.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/java/com/codegym/MvcWebApplicationInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/java/com/codegym/SecurityWebApplicationInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/java/com/codegym/ThuchanhApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/java/com/codegym/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/java/com/codegym/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/java/com/codegym/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/resources/templates/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/main/resources/templates/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Bai_13_SpringSecurity/ThucHanh_SuDungSpringSecurity/src/test/java/com/codegym/ThuchanhApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/ContractDetailsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/DichvuDikemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/PositionEmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/TypeOfRentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/DichvuDiKem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/LevelEmployee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/PartEmployee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/PositionEmployee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/TypeOfRent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/DichvuDikemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/LevelEmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/PartEmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/PositionEmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/TypeOfRentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/DichvuDikemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/LevelEmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/PartEmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/PositionEmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/TypeOfRentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/DichvuDikemServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/LevelEmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/PartEmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/PositionEmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/TypeOfRentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/contract/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/contract/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/contract/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/contract/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/contractDetails/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/contractDetails/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/contractDetails/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/contractDetails/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/dichvuDikem/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/employee/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/employee/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/employee/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/employee/level.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/employee/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/employee/part.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/employee/position.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/service/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/service/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/service/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/service/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/typeOfRent/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/ContractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/DichvuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/controller/DichvuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/ContractDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/ContractDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/Dichvu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/Dichvu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/TypeDichvu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/model/TypeDichvu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/DichvuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/DichvuRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/repository/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/ContractDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/ContractDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/DichvuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/DichvuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/ContractDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/ContractDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/ContractImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/ContractImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/DichvuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/DichvuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/java/com/codegym/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/customer/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/customer/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/customer/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/customer/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/customer/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/customer/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/typeService/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../CaseStudy_FuramaResort/src/main/resources/templates/typeService/create.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +142,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -64,7 +150,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ThucHanh_UngDungQuanLyKhachHang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -149,23 +235,6 @@
       </method>
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -185,11 +254,12 @@
       <workItem from="1589962943054" duration="709000" />
       <workItem from="1589966523527" duration="1007000" />
       <workItem from="1590633650815" duration="48000" />
+      <workItem from="1591234794384" duration="42000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" width="814" height="728" key="#Intentions" timestamp="1589860209917">
